@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 const LinkInput = (props) => {
     const { classes } = props;
-    const [state, setState] = useState({newLinkUrl: ''})
+    const [newLink, setNewLink] = useState("");
+    const linkList = [];
     return (
         <React.Fragment>
             <p>
@@ -18,16 +19,32 @@ const LinkInput = (props) => {
                 placeholder="http://helloworld/com"
                 margin="normal"
                 variant="outlined"
-                value={state.newLinkUrl}
                 InputLabelProps={{
                 shrink: true,
                 }}
+                value = {newLink}
+                onChange = { e => setNewLink(e.target.value)}
             />
-                <Button variant="contained" className={classes.button}>
+
+                <Button
+                 variant="contained" 
+                 className={classes.button}
+                 onClick = {e => linkList.push(newLink)} >
                     Bookmark This!
-                </Button>
+                </Button>  
+              <div>
+                  { 
+                      displayLinkList(linkList)
+                  }
+                  </div>
+               
         </React.Fragment>
     );
+}
+
+const displayLinkList = (linkList) =>  {
+    console.log(linkList);
+   return linkList;
 }
 
 const styles = theme => ({
