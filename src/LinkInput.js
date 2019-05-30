@@ -7,7 +7,8 @@ import React, { useState } from 'react';
 const LinkInput = (props) => {
     const { classes } = props;
     const [newLink, setNewLink] = useState("");
-    const linkList = [];
+    const [linkList, setList] = useState([]);
+
     return (
         <React.Fragment>
             <p>
@@ -29,7 +30,7 @@ const LinkInput = (props) => {
                 <Button
                  variant="contained" 
                  className={classes.button}
-                 onClick = {e => linkList.push(newLink)} >
+                 onClick = {() => setList(...linkList, newLink )} >
                     Bookmark This!
                 </Button>  
               <div>
@@ -43,7 +44,6 @@ const LinkInput = (props) => {
 }
 
 const displayLinkList = (linkList) =>  {
-    console.log(linkList);
    return linkList;
 }
 
