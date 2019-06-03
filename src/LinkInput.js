@@ -9,6 +9,18 @@ const LinkInput = (props) => {
     const [newLink, setNewLink] = useState("");
     const [linkList, setList] = useState([]);
 
+    const handleButtonClick = () => {
+        setList(...linkList, newLink )
+    }
+
+    const displayLinkList = () =>  {
+        return linkList;
+    }
+
+    const handleOnChange = (e) => {
+        setNewLink(e.target.value)
+    }
+
     return (
         <React.Fragment>
             <p>
@@ -24,13 +36,13 @@ const LinkInput = (props) => {
                 shrink: true,
                 }}
                 value = {newLink}
-                onChange = { e => setNewLink(e.target.value)}
+                onChange = {handleOnChange}
             />
 
                 <Button
                  variant="contained" 
                  className={classes.button}
-                 onClick = {() => setList(...linkList, newLink )} >
+                 onClick = {handleButtonClick} >
                     Bookmark This!
                 </Button>  
               <div>
@@ -41,10 +53,6 @@ const LinkInput = (props) => {
                
         </React.Fragment>
     );
-}
-
-const displayLinkList = (linkList) =>  {
-   return linkList;
 }
 
 const styles = theme => ({
