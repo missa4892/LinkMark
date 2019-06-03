@@ -10,7 +10,7 @@ const LinkInput = (props) => {
     const [linkList, setList] = useState([]);
 
     const handleButtonClick = () => {
-        setList(...linkList, newLink )
+        setList([...linkList, newLink ])
     }
 
     const displayLinkList = () =>  {
