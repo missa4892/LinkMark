@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import BookmarkDisplay from './bookmarkDisplay';
 
 const LinkInput = (props) => {
     const { classes } = props;
@@ -44,12 +45,8 @@ const LinkInput = (props) => {
                  className={classes.button}
                  onClick = {handleButtonClick} >
                     Bookmark This!
-                </Button>  
-              <div>
-                  { 
-                      displayLinkList(linkList)
-                  }
-                  </div>
+                </Button> 
+                  <BookmarkDisplay links={linkList}/>
                
         </React.Fragment>
     );
