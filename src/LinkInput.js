@@ -14,10 +14,6 @@ const LinkInput = (props) => {
         setList([...linkList, newLink ])
     }
 
-    const displayLinkList = () =>  {
-        return linkList;
-    }
-
     const handleOnChange = (e) => {
         setNewLink(e.target.value)
     }
